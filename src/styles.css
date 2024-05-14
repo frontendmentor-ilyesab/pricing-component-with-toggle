@@ -1,0 +1,243 @@
+/* Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+/* CSS Properties */
+:root {
+  /* Primary Colors */
+  --main-gradient-color1: hsl(236, 72%, 79%);
+  --main-gradient-color2: hsl(237, 63%, 64%);
+
+  /* Neutral Colors */
+  --very-light-gray-blue: hsl(240, 78%, 98%);
+  --light-gray-blue: hsl(234, 14%, 74%);
+  --gray-blue: hsl(233, 13%, 49%);
+  --dark-gray-blue: hsl(232, 13%, 33%);
+}
+
+/* Main Styles */
+html {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+#root {
+  background-image: url("../images/bg-top.svg");
+  background-repeat: no-repeat;
+  background-position: top -30px right -200px;
+  background-color: var(--very-light-gray-blue);
+  color: var(--gray-blue);
+  font-size: 0.9375rem;
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  width: 100%;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+main {
+  width: 100%;
+  display: grid;
+  gap: 5rem;
+  max-width: 500px;
+}
+
+.site-heading {
+  display: grid;
+  gap: 2.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.toggle-container {
+  color: var(--light-gray-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.toggle-container__background {
+  background: linear-gradient(
+    to right,
+    var(--main-gradient-color1),
+    var(--main-gradient-color2)
+  );
+  border-radius: 2rem;
+  width: 50px;
+  height: 30px;
+  display: grid;
+  align-items: center;
+  padding-inline: 4px;
+}
+
+.toggle-container__circle {
+  background-color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  justify-self: end;
+}
+
+.pricing {
+  display: grid;
+  gap: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.card__header {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.card__type {
+  font-size: 1.2rem;
+}
+
+.card__title {
+  color: var(--dark-gray-blue);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__currency {
+  font-size: 2rem;
+}
+
+.card__content {
+  display: grid;
+  gap: 2rem;
+}
+
+.card__info {
+  list-style: none;
+}
+
+.card__info-item {
+  border-top: 1px solid var(--light-gray-blue);
+  padding-block: 1rem;
+}
+
+.card__info-item:last-child {
+  border-bottom: 1px solid var(--light-gray-blue);
+}
+
+.card__button {
+  background: linear-gradient(
+    to right,
+    var(--main-gradient-color1),
+    var(--main-gradient-color2)
+  );
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-block: 0.8rem;
+  width: 100%;
+}
+
+/* Modifier Classes Styling */
+.toggle-container--yearly .toggle-container__circle {
+  justify-self: start;
+}
+
+.card--recommended {
+  background: linear-gradient(
+    to right,
+    var(--main-gradient-color1),
+    var(--main-gradient-color2)
+  );
+  color: white;
+}
+
+.card--recommended .card__title {
+  color: white;
+}
+
+.card--recommended .card__button {
+  background: white;
+  color: var(--main-gradient-color2);
+}
+
+/* Active States Styling */
+*:focus-visible {
+  outline: none;
+}
+
+.toggle-container__background:is(:hover, :focus, :active) {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.card__button:is(:hover, :focus, :active) {
+  background: inherit;
+  border: 1px solid var(--gray-blue);
+  color: var(--main-gradient-color2);
+  cursor: pointer;
+}
+
+.card--recommended .card__button:is(:hover, :focus, :active) {
+  background: inherit;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media screen and (min-width: 992px) {
+  #root {
+    background-image: url("../images/bg-top.svg"),
+      url("../images/bg-bottom.svg");
+    background-position: top right, bottom left;
+    padding: 0;
+  }
+
+  main {
+    max-width: 850px;
+  }
+
+  .toggle-container__background {
+    width: 65px;
+    height: 40px;
+  }
+
+  .toggle-container__circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pricing {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .card--recommended {
+    transform: scaleY(1.1);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    max-width: 1050px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-height: 700px) {
+  #root {
+    padding-block: 5rem;
+  }
+}
