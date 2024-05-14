@@ -18,6 +18,7 @@ function App() {
         <TogglePricing timeSpan={timeSpan} onToggle={handleToggle} />
       </header>
       <section className="pricing">
+        <h2 className="visually-hidden">Our Pricing Cards</h2>
         <Card cardType="basic" timeSpan={timeSpan} />
         <Card cardType="professional" timeSpan={timeSpan} />
         <Card cardType="master" timeSpan={timeSpan} />
